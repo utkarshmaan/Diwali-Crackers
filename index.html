@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diya Diwali Crackers — Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf1e2;
+    --bg-glow: radial-gradient(circle at 50% -10%, #ffe3ad 0%, #fbf1e2 55%);
+    --surface: #fffaf1;
+    --text: #2a1810;
+    --muted: #7a6455;
+    --line: #e8d7bd;
+    --gold: #b8791c;
+    --gold-bright: #e7a530;
+    --ember: #b03a2e;
+    --ember-bright: #d9503f;
+    --btn-text: #fffaf1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #150c1f;
+      --bg-glow: radial-gradient(circle at 50% -10%, #3a1f3d 0%, #150c1f 55%);
+      --surface: #211530;
+      --text: #f5ead9;
+      --muted: #b9a8bb;
+      --line: #3c2a45;
+      --gold: #f0b23e;
+      --gold-bright: #ffcf6b;
+      --ember: #ff7256;
+      --ember-bright: #ff8f6f;
+      --btn-text: #1b0f10;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #150c1f;
+    --bg-glow: radial-gradient(circle at 50% -10%, #3a1f3d 0%, #150c1f 55%);
+    --surface: #211530;
+    --text: #f5ead9;
+    --muted: #b9a8bb;
+    --line: #3c2a45;
+    --gold: #f0b23e;
+    --gold-bright: #ffcf6b;
+    --ember: #ff7256;
+    --ember-bright: #ff8f6f;
+    --btn-text: #1b0f10;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg-glow), var(--bg);
+    color: var(--text);
+    font-family: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    padding-bottom: 96px;
+  }
+  h1, h2, .brandname { font-family: 'Bricolage Grotesque', -apple-system, sans-serif; }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding: 28px 18px 20px; }
+
+  header { text-align: left; margin-bottom: 22px; }
+  .flame {
+    width: 34px; height: 34px; display: inline-block; margin-bottom: 10px;
+    animation: flicker 3.2s ease-in-out infinite;
+  }
+  @keyframes flicker {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1.06) rotate(-2deg); opacity: 0.9; }
+  }
+  .brandname {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .tagline {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0;
+    max-width: 46ch;
+  }
+
+  .category { margin-top: 30px; }
+  .category h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .item-row:last-child { border-bottom: none; }
+
+  .item-icon {
+    width: 46px; height: 46px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(150deg, var(--surface), var(--line));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .item-icon svg { width: 24px; height: 24px; }
+  .item-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .item-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .item-info { min-width: 0; }
+  .item-name { font-weight: 600; font-size: 15.5px; }
+  .item-meta { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .item-price { color: var(--gold); font-weight: 600; }
+
+  .stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--surface);
+  }
+  .stepper button {
+    width: 34px; height: 34px;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .stepper button:active { background: var(--line); }
+  .stepper input {
+    width: 34px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 15px;
+    color: var(--text);
+    font-family: inherit;
+    -moz-appearance: textfield;
+  }
+  .stepper input::-webkit-outer-spin-button,
+  .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .stepper input:focus { outline: none; }
+
+  .details {
+    margin-top: 34px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .details h2 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 0 0 12px;
+  }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 13.5px; color: var(--muted); margin-bottom: 5px; }
+  .field input, .field textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+  }
+  .field input:focus, .field textarea:focus { outline: 2px solid var(--gold-bright); outline-offset: 1px; }
+
+  .note {
+    margin-top: 26px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .cartbar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 12px 18px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .cartbar-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .cart-total { font-size: 13.5px; color: var(--muted); }
+  .cart-total strong { color: var(--text); font-size: 16px; display: block; }
+  .send-btn {
+    background: linear-gradient(135deg, var(--ember-bright), var(--ember));
+    color: var(--btn-text);
+    border: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .send-btn:disabled {
+    background: var(--line);
+    color: var(--muted);
+    cursor: not-allowed;
+  }
+  .send-btn:not(:disabled):active { transform: translateY(1px); }
+
+  .fallback-link {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C12 2 6 8.5 6 13.5C6 17.09 8.69 20 12 20C15.31 20 18 17.09 18 13.5C18 8.5 12 2 12 2Z" fill="var(--gold-bright)"/>
+      <path d="M12 9C12 9 9.5 12.2 9.5 14.8C9.5 16.57 10.62 18 12 18C13.38 18 14.5 16.57 14.5 14.8C14.5 12.2 12 9 12 9Z" fill="var(--ember-bright)"/>
+    </svg>
+    <p class="brandname">Diya Diwali Crackers</p>
+    <p class="tagline">Pick what you need, set the quantity, and send your order straight to us on WhatsApp — no calls, no waiting.</p>
+  </header>
+
+  <div id="catalog"></div>
+
+  <div class="details">
+    <h2>Your details</h2>
+    <div class="field">
+      <label for="custName">Name</label>
+      <input type="text" id="custName" placeholder="Your name">
+    </div>
+    <div class="field">
+      <label for="custPhone">Phone number</label>
+      <input type="tel" id="custPhone" placeholder="Your contact number">
+    </div>
+  </div>
+
+  <p class="note">Prices shown are indicative and may vary slightly based on stock closer to Diwali. Sale of firecrackers requires a valid local license — please check your municipal/explosives-department rules before selling. Please buy and burst crackers responsibly, preferably in open spaces, and be mindful of local timing restrictions and green-cracker norms.</p>
+</div>
+
+<div class="cartbar">
+  <div class="cartbar-inner">
+    <div class="cart-total">
+      <span id="itemCountLabel">0 items</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="send-btn" id="sendBtn" disabled>Send order on WhatsApp</button>
+  </div>
+</div>
+
+<script>
+  // ---- EDIT THESE TWO THINGS BEFORE SHARING THE LINK ----
+  const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // your WhatsApp number with country code, no + or spaces
+  // To show a real photo for an item, add an "image" field to it, e.g.:
+  // { id: "rainrocket", name: "Colour Rain Rocket", meta: "each", price: 45, image: "data:image/jpeg;base64,..." }
+  // Items without an "image" field fall back to the category icon below.
+  const CATALOG = [
+    { category: "Sparklers & Fountains", items: [
+      { id: "spk10", name: "Electric Sparklers (10cm)", meta: "box of 10", price: 60 },
+      { id: "spk15", name: "Colour Sparklers (15cm)", meta: "box of 10", price: 90 },
+      { id: "anaarS", name: "Anaar — Flower Pot (Small)", meta: "each", price: 40 },
+      { id: "anaarL", name: "Anaar — Flower Pot (Large)", meta: "each", price: 120 },
+    ]},
+    { category: "Ground Spinners", items: [
+      { id: "chakriS", name: "Chakri — Ground Spinner (Small)", meta: "each", price: 30 },
+      { id: "chakriD", name: "Chakri — Ground Spinner (Deluxe)", meta: "each", price: 70 },
+    ]},
+    { category: "Sound Crackers", items: [
+      { id: "sutli", name: "Sutli Bomb", meta: "pack of 10", price: 80 },
+      { id: "ladi100", name: "Lakshmi Ladi", meta: "100 wala", price: 150 },
+    ]},
+    { category: "Sky Shots & Rockets", items: [
+      { id: "rocket", name: "Rocket", meta: "single", price: 25 },
+      { id: "skyshower", name: "10-Shot Sky Shower", meta: "each", price: 350 },
+      { id: "rainrocket", name: "Colour Rain Rocket", meta: "each", price: 45 },
+    ]},
+    { category: "Combo", items: [
+      { id: "combo", name: "Family Combo Box", meta: "mixed assortment", price: 999 },
+    ]},
+  ];
+  // --------------------------------------------------------
+
+  // One simple icon per category — swap these for real product photos later if you send them
+  const CATEGORY_ICONS = {
+    "Sparklers & Fountains": `<svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="22" x2="12" y2="14" stroke="var(--gold-bright)" stroke-width="2" stroke-linecap="round"/><g stroke="var(--ember-bright)" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="10" x2="12" y2="4"/><line x1="8.5" y1="11.5" x2="4.5" y2="7.5"/><line x1="15.5" y1="11.5" x2="19.5" y2="7.5"/><line x1="7" y1="8" x2="3.5" y2="9.5"/><line x1="17" y1="8" x2="20.5" y2="9.5"/></g><circle cx="12" cy="10" r="2" fill="var(--gold-bright)"/></svg>`,
+    "Ground Spinners": `<svg viewBox="0 0 24 24" fill="none"><path d="M12 12 L12 3 A9 9 0 0 1 21 12 Z" fill="var(--ember-bright)" opacity="0.9"/><path d="M12 12 L12 3 A9 9 0 0 1 21 12 Z" fill="var(--gold-bright)" opacity="0.9" transform="rotate(180 12 12)"/><circle cx="12" cy="12" r="2.4" fill="var(--surface)"/></svg>`,
+    "Sound Crackers": `<svg viewBox="0 0 24 24" fill="none"><rect x="9" y="8" width="6" height="13" rx="2" fill="var(--ember-bright)"/><rect x="9" y="8" width="6" height="3" fill="var(--gold-bright)"/><path d="M12 8 C12 8 12 5 12 4" stroke="var(--gold-bright)" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="3" r="1.6" fill="var(--gold-bright)"/></svg>`,
+    "Sky Shots & Rockets": `<svg viewBox="0 0 24 24" fill="none"><path d="M12 3 C15 6 16 11 15 15 L9 15 C8 11 9 6 12 3Z" fill="var(--ember-bright)"/><path d="M9 15 L6 19 L9.5 18Z" fill="var(--gold-bright)"/><path d="M15 15 L18 19 L14.5 18Z" fill="var(--gold-bright)"/><circle cx="12" cy="9" r="1.6" fill="var(--surface)"/><path d="M10 15 L9 21 M14 15 L15 21" stroke="var(--gold-bright)" stroke-width="1.4" stroke-linecap="round"/></svg>`,
+    "Combo": `<svg viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="1.5" fill="var(--ember-bright)"/><rect x="4" y="7" width="16" height="4" rx="1" fill="var(--gold-bright)"/><rect x="11" y="7" width="2" height="13" fill="var(--surface)"/><path d="M9 7 C7 7 6.5 4 9 4 C11 4 11 7 11 7Z" fill="var(--gold-bright)"/><path d="M15 7 C17 7 17.5 4 15 4 C13 4 13 7 13 7Z" fill="var(--gold-bright)"/></svg>`,
+  };
+
+  const qty = {};
+  const catalogEl = document.getElementById('catalog');
+
+  CATALOG.forEach(group => {
+    const section = document.createElement('div');
+    section.className = 'category';
+    const h2 = document.createElement('h2');
+    h2.textContent = group.category;
+    section.appendChild(h2);
+
+    const iconSvg = CATEGORY_ICONS[group.category] || '';
+
+    group.items.forEach(item => {
+      qty[item.id] = 0;
+      const row = document.createElement('div');
+      row.className = 'item-row';
+      row.innerHTML = `
+        <div class="item-main">
+          <div class="item-icon">${item.image ? `<img src="${item.image}" alt="${item.name}">` : iconSvg}</div>
+          <div class="item-info">
+            <div class="item-name">${item.name}</div>
+            <div class="item-meta">${item.meta} · <span class="item-price">₹${item.price}</span></div>
+          </div>
+        </div>
+        <div class="stepper">
+          <button type="button" aria-label="Decrease" data-action="dec" data-id="${item.id}">−</button>
+          <input type="text" inputmode="numeric" readonly value="0" id="qty-${item.id}">
+          <button type="button" aria-label="Increase" data-action="inc" data-id="${item.id}">+</button>
+        </div>
+      `;
+      section.appendChild(row);
+    });
+    catalogEl.appendChild(section);
+  });
+
+  function itemById(id) {
+    for (const g of CATALOG) {
+      const found = g.items.find(i => i.id === id);
+      if (found) return found;
+    }
+    return null;
+  }
+
+  function updateSummary() {
+    let count = 0, total = 0;
+    Object.keys(qty).forEach(id => {
+      const q = qty[id];
+      if (q > 0) {
+        count += q;
+        total += q * itemById(id).price;
+      }
+    });
+    document.getElementById('itemCountLabel').textContent = count === 1 ? '1 item' : `${count} items`;
+    document.getElementById('cartTotal').textContent = `₹${total}`;
+    document.getElementById('sendBtn').disabled = count === 0;
+  }
+
+  catalogEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const id = btn.dataset.id;
+    const delta = btn.dataset.action === 'inc' ? 1 : -1;
+    qty[id] = Math.max(0, qty[id] + delta);
+    document.getElementById(`qty-${id}`).value = qty[id];
+    updateSummary();
+  });
+
+  document.getElementById('sendBtn').addEventListener('click', () => {
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+
+    let lines = ["New Diwali cracker order:", ""];
+    let total = 0;
+    CATALOG.forEach(group => {
+      group.items.forEach(item => {
+        const q = qty[item.id];
+        if (q > 0) {
+          const lineTotal = q * item.price;
+          total += lineTotal;
+          lines.push(`- ${item.name} x${q} = ₹${lineTotal}`);
+        }
+      });
+    });
+    lines.push("");
+    lines.push(`Total: ₹${total}`);
+    if (name) lines.push(`Name: ${name}`);
+    if (phone) lines.push(`Phone: ${phone}`);
+
+    const message = encodeURIComponent(lines.join("\n"));
+    // Native app scheme — opens the WhatsApp mobile app directly, skipping the
+    // "Open app / Continue to WhatsApp Web" chooser that wa.me links can show.
+    window.location.href = `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${message}`;
+  });
+
+  updateSummary();
+</script>
+
+</body>
+</html>
