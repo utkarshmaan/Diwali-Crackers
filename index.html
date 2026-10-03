@@ -65,7 +65,7 @@
 
   header { text-align: left; margin-bottom: 22px; }
   .flame {
-    width: 34px; height: 34px; display: inline-block; margin-bottom: 10px;
+    width: 26px; height: 26px; flex: 0 0 26px;
     animation: flicker 3.2s ease-in-out infinite;
   }
   @keyframes flicker {
@@ -73,6 +73,9 @@
     50% { transform: scale(1.06) rotate(-2deg); opacity: 0.9; }
   }
   .brandname {
+    display: flex;
+    align-items: center;
+    gap: 9px;
     font-size: 30px;
     font-weight: 700;
     margin: 0 0 4px;
@@ -85,41 +88,46 @@
     max-width: 46ch;
   }
 
-  .category { margin-top: 30px; }
+  .category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 30px;
+  }
   .category h2 {
+    grid-column: 1 / -1;
     font-size: 13px;
     font-weight: 600;
     color: var(--gold);
-    margin: 0 0 10px;
+    margin: 0;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--line);
   }
 
   .item-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 14px 0;
-    border-bottom: 1px dashed var(--line);
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
   }
-  .item-row:last-child { border-bottom: none; }
 
   .item-icon {
-    width: 46px; height: 46px;
-    flex-shrink: 0;
-    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     background: linear-gradient(150deg, var(--surface), var(--line));
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .item-icon svg { width: 24px; height: 24px; }
+  .item-icon svg { width: 56px; height: 56px; }
   .item-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .item-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .item-info { min-width: 0; }
+  .item-main { display: flex; flex-direction: column; min-width: 0; }
+  .item-info { min-width: 0; padding: 12px 12px 10px; }
   .item-name { font-weight: 600; font-size: 15.5px; }
   .item-meta { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
   .item-price { color: var(--gold); font-weight: 600; }
@@ -131,11 +139,12 @@
     border: 1px solid var(--line);
     border-radius: 9px;
     overflow: hidden;
-    flex-shrink: 0;
+    width: calc(100% - 104px);
+    margin: 0 auto 12px auto;
     background: var(--surface);
   }
   .stepper button {
-    width: 34px; height: 34px;
+    width: 58px; height: 28px;
     border: none;
     background: transparent;
     color: var(--text);
@@ -143,9 +152,16 @@
     cursor: pointer;
     line-height: 1;
   }
+  .stepper button:first-child{
+    border-right: 1px solid var(--line);
+  }
+   .stepper button:last-child{
+    border-left: 1px solid var(--line);
+   }
   .stepper button:active { background: var(--line); }
   .stepper input {
-    width: 34px;
+    width: 28px;
+    flex: 1;
     border: none;
     background: transparent;
     text-align: center;
@@ -182,6 +198,23 @@
     font-size: 15px;
   }
   .field input:focus, .field textarea:focus { outline: 2px solid var(--gold-bright); outline-offset: 1px; }
+  .cod-option {
+    display: flex !important;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 0 !important;
+    color: var(--text) !important;
+    cursor: pointer;
+  }
+  .cod-option input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    accent-color: var(--ember);
+  }
+  .field textarea { resize: vertical; }
 
   .note {
     margin-top: 26px;
@@ -241,11 +274,13 @@
 
 <div class="wrap">
   <header>
-    <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2C12 2 6 8.5 6 13.5C6 17.09 8.69 20 12 20C15.31 20 18 17.09 18 13.5C18 8.5 12 2 12 2Z" fill="var(--gold-bright)"/>
-      <path d="M12 9C12 9 9.5 12.2 9.5 14.8C9.5 16.57 10.62 18 12 18C13.38 18 14.5 16.57 14.5 14.8C14.5 12.2 12 9 12 9Z" fill="var(--ember-bright)"/>
-    </svg>
-    <p class="brandname">Diya Diwali Crackers</p>
+    <p class="brandname">
+      <svg class="flame" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 2C12 2 6 8.5 6 13.5C6 17.09 8.69 20 12 20C15.31 20 18 17.09 18 13.5C18 8.5 12 2 12 2Z" fill="var(--gold-bright)"/>
+        <path d="M12 9C12 9 9.5 12.2 9.5 14.8C9.5 16.57 10.62 18 12 18C13.38 18 14.5 16.57 14.5 14.8C14.5 12.2 12 9 12 9Z" fill="var(--ember-bright)"/>
+      </svg>
+      Diya Diwali Crackers
+    </p>
     <p class="tagline">Pick what you need, set the quantity, and send your order straight to us on WhatsApp — no calls, no waiting.</p>
   </header>
 
@@ -260,6 +295,16 @@
     <div class="field">
       <label for="custPhone">Phone number</label>
       <input type="tel" id="custPhone" placeholder="Your contact number">
+    </div>
+    <div class="field">
+      <label class="cod-option" for="codEnabled">
+        <input type="checkbox" id="codEnabled" aria-controls="codAddressField" aria-expanded="false">
+        <span>Cash On Delivery (COD)</span>
+      </label>
+    </div>
+    <div class="field" id="codAddressField" hidden>
+      <label for="custAddress">Delivery address</label>
+      <textarea id="custAddress" rows="3" placeholder="Enter your full delivery address"></textarea>
     </div>
   </div>
 
@@ -384,9 +429,27 @@
     updateSummary();
   });
 
+  const codCheckbox = document.getElementById('codEnabled');
+  const codAddressField = document.getElementById('codAddressField');
+  const codAddress = document.getElementById('custAddress');
+
+  codCheckbox.addEventListener('change', () => {
+    const codEnabled = codCheckbox.checked;
+    codAddressField.hidden = !codEnabled;
+    codAddress.required = codEnabled;
+    codCheckbox.setAttribute('aria-expanded', String(codEnabled));
+  });
+
   document.getElementById('sendBtn').addEventListener('click', () => {
     const name = document.getElementById('custName').value.trim();
     const phone = document.getElementById('custPhone').value.trim();
+    const address = codAddress.value.trim();
+    const codEnabled = codCheckbox.checked;
+
+    if (codEnabled && !address) {
+      codAddress.reportValidity();
+      return;
+    }
 
     let lines = ["New Diwali cracker order:", ""];
     let total = 0;
@@ -404,6 +467,10 @@
     lines.push(`Total: ₹${total}`);
     if (name) lines.push(`Name: ${name}`);
     if (phone) lines.push(`Phone: ${phone}`);
+    if (codEnabled) {
+      lines.push('Payment: Cash On Delivery (COD)');
+      lines.push(`Delivery address: ${address}`);
+    }
 
     const message = encodeURIComponent(lines.join("\n"));
     // Native app scheme — opens the WhatsApp mobile app directly, skipping the
