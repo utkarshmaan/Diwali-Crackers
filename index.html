@@ -322,34 +322,99 @@
 </div>
 
 <script>
-  // ---- EDIT THESE TWO THINGS BEFORE SHARING THE LINK ----
   const WHATSAPP_NUMBER = "918397092928"; // your WhatsApp number with country code, no + or spaces
-  // To show a real photo for an item, add an "image" field to it, e.g.:
-  // { id: "rainrocket", name: "Colour Rain Rocket", meta: "each", price: 45, image: "data:image/jpeg;base64,..." }
-  // Items without an "image" field fall back to the category icon below.
+  
   const CATALOG = [
     { category: "Sparklers & Fountains", items: [
-      { id: "spk10", name: "Midhu helicopter cracker", meta: "box of 10", price: 60,image: "./images/helicopter-cracker.jpeg" },
-      { id: "spk15", name: "Leopard king machis bomb", meta: "box of 10", price: 90,image: "./images/machis-bomb.jpeg" },
-      { id: "anaarS", name: "Three Sound rocket", meta: "each", price: 40,image: "./images/three-sound-rocket.jpeg" },
-      { id: "anaarL", name: "Anaar — Flower Pot (Large)", meta: "each", price: 120,image: "./images/chakkar.jpg" },
+      { id: "2-in-1-flower-pots", name: "2 In 1 Flower Pots", meta: "", price: "", image: "./images/2-in-1-flower-pots.jpg" },
+      { id: "asharfi-crackling-flower-pots-2", name: "Asharfi Crackling Flower Pots 2", meta: "", price: "", image: "./images/asharfi-crackling-flower-pots-2.jpg" },
+      { id: "asharfi-crackling-flower-pots", name: "Asharfi Crackling Flower Pots", meta: "", price: "", image: "./images/asharfi-crackling-flower-pots.jpg" },
+      { id: "chehak-coloured-sparklers-15-cm", name: "Chehak Coloured Sparklers 15 Cm", meta: "", price: "", image: "./images/chehak-coloured-sparklers-15-cm.jpg" },
+      { id: "cock-brand-50cm-coloured-sparklers", name: "Cock Brand 50cm Coloured Sparklers", meta: "", price: "", image: "./images/cock-brand-50cm-coloured-sparklers.jpg" },
+      { id: "cock-brand-75cm-red-sparklers", name: "Cock Brand 75cm Red Sparklers", meta: "", price: "", image: "./images/cock-brand-75cm-red-sparklers.jpg" },
+      { id: "cock-brand-golden-penny-anar", name: "Cock Brand Golden Penny Anar", meta: "", price: "", image: "./images/cock-brand-golden-penny-anar.jpg" },
+      { id: "cock-brand-silver-rain-torches", name: "Cock Brand Silver Rain Torches", meta: "", price: "", image: "./images/cock-brand-silver-rain-torches.jpg" },
+      { id: "cock-siren-torch", name: "Cock Siren Torch", meta: "", price: "", image: "./images/cock-siren-torch.jpg" },
+      { id: "cornation-colour-pinjore-deluxe-flower-pot-anar", name: "Cornation Colour Pinjore Deluxe Flower Pot Anar", meta: "", price: "", image: "./images/cornation-colour-pinjore-deluxe-flower-pot-anar.jpg" },
+      { id: "deluxe-flower-pots", name: "Deluxe Flower Pots", meta: "", price: "", image: "./images/deluxe-flower-pots.jpg" },
+      { id: "golden-kohinoor-coloured-sparklers-12-cm", name: "Golden Kohinoor Coloured Sparklers 12 Cm", meta: "", price: "", image: "./images/golden-kohinoor-coloured-sparklers-12-cm.jpg" },
+      { id: "mercury-rainbow-torch", name: "Mercury Rainbow Torch", meta: "", price: "", image: "./images/mercury-rainbow-torch.jpg" },
+      { id: "sk-brand-flower-pot-special", name: "Sk Brand Flower Pot Special", meta: "", price: "", image: "./images/sk-brand-flower-pot-special.jpg" },
+      { id: "sri-kaliswaris-olympic-torches", name: "Sri Kaliswaris Olympic Torches", meta: "", price: "", image: "./images/sri-kaliswaris-olympic-torches.jpg" },
+      { id: "sunshine-brand-cocktail-fountain", name: "Sunshine Brand Cocktail Fountain", meta: "", price: "", image: "./images/sunshine-brand-cocktail-fountain.jpg" },
+      { id: "tim-tim-deluxe-flower-pots", name: "Tim Tim Deluxe Flower Pots", meta: "", price: "", image: "./images/tim-tim-deluxe-flower-pots.jpg" },
     ]},
     { category: "Ground Spinners", items: [
-      { id: "chakriS", name: "Chakri — Ground Spinner (Small)", meta: "each", price: 30 },
-      { id: "chakriD", name: "Chakri — Ground Spinner (Deluxe)", meta: "each", price: 70 },
+      { id: "cock-ground-chakkar-45-cm", name: "Cock Ground Chakkar 45 Cm", meta: "", price: "", image: "./images/cock-ground-chakkar-45-cm.jpg" },
+      { id: "cock-ground-chakkar-70-cm", name: "Cock Ground Chakkar 70 Cm", meta: "", price: "", image: "./images/cock-ground-chakkar-70-cm.jpg" },
+      { id: "cornation-zamin-chakkar-big-size", name: "Cornation Zamin Chakkar Big Size", meta: "", price: "", image: "./images/cornation-zamin-chakkar-big-size.jpg" },
+      { id: "cornation-zamin-chakkar-deluxe", name: "Cornation Zamin Chakkar Deluxe", meta: "", price: "", image: "./images/cornation-zamin-chakkar-deluxe.jpg" },
+      { id: "mercury-crackling-wheel", name: "Mercury Crackling Wheel", meta: "", price: "", image: "./images/mercury-crackling-wheel.jpg" },
+      { id: "mercury-dora-spinner", name: "Mercury Dora Spinner", meta: "", price: "", image: "./images/mercury-dora-spinner.jpg" },
+      { id: "mercury-musical-wheel", name: "Mercury Musical Wheel", meta: "", price: "", image: "./images/mercury-musical-wheel.jpg" },
+      { id: "mercury-silver-giant-wheel", name: "Mercury Silver Giant Wheel", meta: "", price: "", image: "./images/mercury-silver-giant-wheel.jpg" },
+      { id: "sunshine-brand-ramba-dance", name: "Sunshine Brand Ramba Dance", meta: "", price: "", image: "./images/sunshine-brand-ramba-dance.jpg" },
     ]},
     { category: "Sound Crackers", items: [
-      { id: "sutli", name: "Sutli Bomb", meta: "pack of 10", price: 80 },
-      { id: "ladi100", name: "Lakshmi Ladi", meta: "100 wala", price: 150 },
+      { id: "aandhi-toofan-green-sutli-bomb", name: "Aandhi Toofan Green Sutli Bomb", meta: "", price: "", image: "./images/aandhi-toofan-green-sutli-bomb.jpg" },
+      { id: "cock-brand-bullet-bomb", name: "Cock Brand Bullet Bomb", meta: "", price: "", image: "./images/cock-brand-bullet-bomb.jpg" },
+      { id: "cock-brand-gems-bullet-bomb", name: "Cock Brand Gems Bullet Bomb", meta: "", price: "", image: "./images/cock-brand-gems-bullet-bomb.jpg" },
+      { id: "cock-double-ghoda-tota-laxmi-bomb", name: "Cock Double Ghoda Tota Laxmi Bomb", meta: "", price: "", image: "./images/cock-double-ghoda-tota-laxmi-bomb.jpg" },
+      { id: "cock-giraffe-bomb-large-size", name: "Cock Giraffe Bomb Large Size", meta: "", price: "", image: "./images/cock-giraffe-bomb-large-size.jpg" },
+      { id: "cock-hydro-foiled-bomb", name: "Cock Hydro Foiled Bomb", meta: "", price: "", image: "./images/cock-hydro-foiled-bomb.jpg" },
+      { id: "cornation-fun-bomb", name: "Cornation Fun Bomb", meta: "", price: "", image: "./images/cornation-fun-bomb.jpg" },
+      { id: "cornation-nazi-green-sutli-bomb", name: "Cornation Nazi Green Sutli Bomb", meta: "", price: "", image: "./images/cornation-nazi-green-sutli-bomb.jpg" },
+      { id: "cornation-ziti-wala", name: "Cornation Ziti Wala", meta: "", price: "", image: "./images/cornation-ziti-wala.jpg" },
+      { id: "dolphins-atom-bomb", name: "Dolphins Atom Bomb", meta: "", price: "", image: "./images/dolphins-atom-bomb.jpg" },
+      { id: "duck-mini-bullet-bomb", name: "Duck Mini Bullet Bomb", meta: "", price: "", image: "./images/duck-mini-bullet-bomb.jpg" },
+      { id: "gaja-rocket-bomb", name: "Gaja Rocket Bomb", meta: "", price: "", image: "./images/gaja-rocket-bomb.jpg" },
+      { id: "leopard-king-machis-bomb", name: "Leopard King Machis Bomb", meta: "", price: "", image: "./images/leopard-king-machis-bomb.jpg" },
+      { id: "mega-elephant-bomb", name: "Mega Elephant Bomb", meta: "", price: "", image: "./images/mega-elephant-bomb.jpg" },
+      { id: "mercury-ak47", name: "Mercury AK47", meta: "", price: "", image: "./images/mercury-ak47.jpg" },
+      { id: "mukila-1000-ladi", name: "Mukila 1000 Ladi", meta: "", price: "", image: "./images/mukila-1000-ladi.jpg" },
+      { id: "mukila-2000-ladi", name: "Mukila 2000 Ladi", meta: "", price: "", image: "./images/mukila-2000-ladi.jpg" },
+      { id: "mukila-5000-ladi", name: "Mukila 5000 Ladi", meta: "", price: "", image: "./images/mukila-5000-ladi.jpg" },
+      { id: "pandyans-lingaa-1000", name: "Pandyans Lingaa 1000", meta: "", price: "", image: "./images/pandyans-lingaa-1000.jpg" },
+      { id: "taj-mahal-1k-wale-red-roll-cracker", name: "Taj Mahal 1k Wale Red Roll Cracker", meta: "", price: "", image: "./images/taj-mahal-1k-wale-red-roll-cracker.jpg" },
+      { id: "velavans-bullet-rkk", name: "Velavans Bullet Rkk", meta: "", price: "", image: "./images/velavans-bullet-rkk.jpg" },
+      { id: "vip-bomb-big-sutli-bomb", name: "Vip Bomb Big Sutli Bomb", meta: "", price: "", image: "./images/vip-bomb-big-sutli-bomb.jpg" },
     ]},
     { category: "Sky Shots & Rockets", items: [
-      { id: "rocket", name: "Rocket", meta: "single", price: 25 },
-      { id: "skyshower", name: "10-Shot Sky Shower", meta: "each", price: 350 },
-      { id: "rainrocket", name: "Colour Rain Rocket", meta: "each", price: 45 },
+      { id: "apple-fireworks-pogo-12-star", name: "Apple Fireworks Pogo 12 Star", meta: "", price: "", image: "./images/apple-fireworks-pogo-12-star.jpg" },
+      { id: "cock-12-star-skyshot", name: "Cock 12 Star Skyshot", meta: "", price: "", image: "./images/cock-12-star-skyshot.jpg" },
+      { id: "cock-brand-sky-whistle-rocket", name: "Cock Brand Sky Whistle Rocket", meta: "", price: "", image: "./images/cock-brand-sky-whistle-rocket.jpg" },
+      { id: "cock-lunix-rocket", name: "Cock Lunix Rocket", meta: "", price: "", image: "./images/cock-lunix-rocket.jpg" },
+      { id: "cock-penta-sky-flash-skyshot", name: "Cock Penta Sky Flash Skyshot", meta: "", price: "", image: "./images/cock-penta-sky-flash-skyshot.jpg" },
+      { id: "cock-signal-rocket-7star-skyshot", name: "Cock Signal Rocket 7star Skyshot", meta: "", price: "", image: "./images/cock-signal-rocket-7star-skyshot.jpg" },
+      { id: "cock-silver-dews-mini-skyshot", name: "Cock Silver Dews Mini Skyshot", meta: "", price: "", image: "./images/cock-silver-dews-mini-skyshot.jpg" },
+      { id: "golden-shots", name: "Golden Shots", meta: "", price: "", image: "./images/golden-shots.jpg" },
+      { id: "hollywood-multi-shots", name: "Hollywood Multi Shots", meta: "", price: "", image: "./images/hollywood-multi-shots.jpg" },
+      { id: "hot-girls-sonny-skyshot", name: "Hot Girls Sonny Skyshot", meta: "", price: "", image: "./images/hot-girls-sonny-skyshot.jpg" },
+      { id: "joker-30-shots", name: "Joker 30 Shots", meta: "", price: "", image: "./images/joker-30-shots.jpg" },
+      { id: "mercury-the-flash-60-shots", name: "Mercury The Flash 60 Shots", meta: "", price: "", image: "./images/mercury-the-flash-60-shots.jpg" },
+      { id: "mohanas-3-sound-rocket", name: "Mohanas 3 Sound Rocket", meta: "", price: "", image: "./images/mohanas-3-sound-rocket.jpg" },
+      { id: "red-dragon-sonny-skyshot", name: "Red Dragon Sonny Skyshot", meta: "", price: "", image: "./images/red-dragon-sonny-skyshot.jpg" },
+      { id: "sds-hollywood-multi-shots-60-shot", name: "Sds Hollywood Multi Shots 60 Shot", meta: "", price: "", image: "./images/sds-hollywood-multi-shots-60-shot.jpg" },
+      { id: "sk-brand-angry-birds-3-piece-bigshell-skyshot-pack", name: "Sk Brand Angry Birds 3 Piece Bigshell Skyshot Pack", meta: "", price: "", image: "./images/sk-brand-angry-birds-3-piece-bigshell-skyshot-pack.jpg" },
+      { id: "sonny-crackling-flower-skyshot-5-piece", name: "Sonny Crackling Flower Skyshot 5 Piece", meta: "", price: "", image: "./images/sonny-crackling-flower-skyshot-5-piece.jpg" },
+      { id: "sonny-glitter-flitter-skyshot-big-shell", name: "Sonny Glitter Flitter Skyshot Big Shell", meta: "", price: "", image: "./images/sonny-glitter-flitter-skyshot-big-shell.jpg" },
+      { id: "sri-krishnasamys-balle-balle-30-shots", name: "Sri Krishnasamys Balle Balle 30 Shots", meta: "", price: "", image: "./images/sri-krishnasamys-balle-balle-30-shots.jpg" },
+      { id: "vinayaga-sonny-brand-panorama-skyshot-big-shell", name: "Vinayaga Sonny Brand Panorama Skyshot Big Shell", meta: "", price: "", image: "./images/vinayaga-sonny-brand-panorama-skyshot-big-shell.jpg" },
     ]},
-    // { category: "Combo", items: [
-    //   { id: "combo", name: "Family Combo Box", meta: "mixed assortment", price: 999 },
-    // ]},
+    { category: "Other Fireworks", items: [
+      { id: "bharat-fancy-3-in-1-blackberry", name: "Bharat Fancy 3 In 1 Blackberry", meta: "", price: "", image: "./images/bharat-fancy-3-in-1-blackberry.jpg" },
+      { id: "blue-eyes", name: "Blue Eyes", meta: "", price: "", image: "./images/blue-eyes.jpg" },
+      { id: "cock-brand-jil-jil", name: "Cock Brand Jil Jil", meta: "", price: "", image: "./images/cock-brand-jil-jil.jpg" },
+      { id: "cock-green-sparkling-30-cm", name: "Cock Green Sparkling 30 Cm", meta: "", price: "", image: "./images/cock-green-sparkling-30-cm.jpg" },
+      { id: "mercury-dragon-flame", name: "Mercury Dragon Flame", meta: "", price: "", image: "./images/mercury-dragon-flame.jpg" },
+      { id: "mercury-jumbo-peacock", name: "Mercury Jumbo Peacock", meta: "", price: "", image: "./images/mercury-jumbo-peacock.jpg" },
+      { id: "mercury-siren", name: "Mercury Siren", meta: "", price: "", image: "./images/mercury-siren.jpg" },
+      { id: "mercury-vibrant-blast", name: "Mercury Vibrant Blast", meta: "", price: "", image: "./images/mercury-vibrant-blast.jpg" },
+      { id: "midhu-helicopter-cracker", name: "Midhu Helicopter Cracker", meta: "", price: "", image: "./images/midhu-helicopter-cracker.jpg" },
+      { id: "sunshine-brand-raid-and-flyiers", name: "Sunshine Brand Raid And Flyiers", meta: "", price: "", image: "./images/sunshine-brand-raid-and-flyiers.jpg" },
+      { id: "vinayaga-sonny-brand-cappuccino-and-sonny-fireworks", name: "Vinayaga Sonny Brand Cappuccino And Sonny Fireworks", meta: "", price: "", image: "./images/vinayaga-sonny-brand-cappuccino-and-sonny-fireworks.jpg" },
+      { id: "vinayaga-sonny-magic-crystal", name: "Vinayaga Sonny Magic Crystal", meta: "", price: "", image: "./images/vinayaga-sonny-magic-crystal.jpg" },
+    ]},
   ];
   // --------------------------------------------------------
 
@@ -383,7 +448,7 @@
           <div class="item-icon">${item.image ? `<img src="${item.image}" alt="${item.name}">` : iconSvg}</div>
           <div class="item-info">
             <div class="item-name">${item.name}</div>
-            <div class="item-meta">${item.meta} · <span class="item-price">₹${item.price}</span></div>
+            ${item.meta || item.price !== "" ? `<div class="item-meta">${[item.meta, item.price !== "" ? `<span class="item-price">₹${item.price}</span>` : ""].filter(Boolean).join(" · ")}</div>` : ""}
           </div>
         </div>
         <div class="stepper">
@@ -406,16 +471,18 @@
   }
 
   function updateSummary() {
-    let count = 0, total = 0;
+    let count = 0, total = 0, hasUnpricedItems = false;
     Object.keys(qty).forEach(id => {
       const q = qty[id];
       if (q > 0) {
         count += q;
-        total += q * itemById(id).price;
+        const item = itemById(id);
+        if (item.price === "") hasUnpricedItems = true;
+        else total += q * item.price;
       }
     });
     document.getElementById('itemCountLabel').textContent = count === 1 ? '1 item' : `${count} items`;
-    document.getElementById('cartTotal').textContent = `₹${total}`;
+    document.getElementById('cartTotal').textContent = hasUnpricedItems ? 'Price to be confirmed' : `₹${total}`;
     document.getElementById('sendBtn').disabled = count === 0;
   }
 
@@ -452,11 +519,16 @@
     }
 
     let lines = ["New Diwali cracker order:", ""];
-    let total = 0;
+    let total = 0, hasUnpricedItems = false;
     CATALOG.forEach(group => {
       group.items.forEach(item => {
         const q = qty[item.id];
         if (q > 0) {
+          if (item.price === "") {
+            hasUnpricedItems = true;
+            lines.push(`- ${item.name} x${q}`);
+            return;
+          }
           const lineTotal = q * item.price;
           total += lineTotal;
           lines.push(`- ${item.name} x${q} = ₹${lineTotal}`);
@@ -464,7 +536,7 @@
       });
     });
     lines.push("");
-    lines.push(`Total: ₹${total}`);
+    lines.push(hasUnpricedItems ? 'Total: Price to be confirmed' : `Total: ₹${total}`);
     if (name) lines.push(`Name: ${name}`);
     if (phone) lines.push(`Phone: ${phone}`);
     if (codEnabled) {
