@@ -576,8 +576,8 @@
     });
     ["cock", "others"].forEach(brand => {
       if (brandLines[brand].length > 0) {
-        const brandLabel = brand === "cock" ? "Cock" : "others";
-        lines.push(`${brandLabel} brand:`, ...brandLines[brand], "");
+        const brandLabel = brand === "cock" ? "Cock" : "Others";
+        lines.push(`${brandLabel} :`, ...brandLines[brand], "");
       }
     });
     lines.push("");
