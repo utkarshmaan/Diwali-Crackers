@@ -558,11 +558,12 @@
 
     let lines = ["New Diwali cracker order:", ""];
     const brandLines = { cock: [], others: [] };
-    let total = 0, hasUnpricedItems = false;
+    let total = 0, totalQuantity = 0, hasUnpricedItems = false;
     CATALOG.forEach(group => {
       group.items.forEach(item => {
         const q = qty[item.id];
         if (q > 0) {
+          totalQuantity += q;
           if (item.price === "") {
             hasUnpricedItems = true;
             brandLines[item.brand].push(`- ${item.name} x${q}`);
@@ -581,6 +582,7 @@
       }
     });
     lines.push("");
+    lines.push(`Total quantity: ${totalQuantity}`);
     lines.push(hasUnpricedItems ? 'Total: Price to be confirmed' : `Total: ₹${total}`);
     if (name) lines.push(`Name: ${name}`);
     if (phone) lines.push(`Phone: ${phone}`);
