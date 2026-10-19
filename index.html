@@ -349,6 +349,10 @@
       // { id: "asharfi-crackling-flower-pots-2", name: "Asharfi Crackling Flower Pots 2", meta: "", price: "", image: "./images/asharfi-crackling-flower-pots-2.jpg" },
       { id: "asharfi-crackling-flower-pots", name: "Asharfi Crackling Flower Pots", meta: "", price: "", image: "./images/asharfi-crackling-flower-pots.jpg", brand: "others" },
       { id: "cock-brand-golden-penny-anar", name: "Cock Brand Golden Penny Anar", meta: "", price: "", image: "./images/cock-brand-golden-penny-anar.jpg", brand: "cock" },
+      { id: "cock-flower-pots-big", name: "Cock Flower Pots Big", meta: "", price: "", image: "./images/cock-flower-pots-big.jpg", brand: "cock" },
+      { id: "cock-flower-pots-deluxe", name: "Cock Flower Pots Deluxe", meta: "", price: "", image: "./images/cock-flower-pots-deluxe.jpg", brand: "cock" },
+      { id: "cock-flower-pots-special", name: "Cock Flower Pots Special", meta: "", price: "", image: "./images/cock-flower-pots-special.jpg", brand: "cock" },
+      { id: "cock-super-flower-pots", name: "Cock Super Flower Pots", meta: "", price: "", image: "./images/cock-super-flower-pots.jpg", brand: "cock" },
       { id: "cornation-colour-pinjore-deluxe-flower-pot-anar", name: "Cornation Colour Pinjore Deluxe Flower Pot Anar", meta: "", price: "", image: "./images/cornation-colour-pinjore-deluxe-flower-pot-anar.jpg", brand: "others" },
       { id: "deluxe-flower-pots", name: "Deluxe Flower Pots", meta: "", price: "", image: "./images/deluxe-flower-pots.jpg", brand: "others" },
       { id: "sk-brand-flower-pot-special", name: "Sk Brand Flower Pot Special", meta: "", price: "", image: "./images/sk-brand-flower-pot-special.jpg", brand: "others" },
@@ -398,6 +402,7 @@
     { category: "Rocket aur Sky Shots(रॉकेट और स्काई शॉट)", items: [
       { id: "apple-fireworks-pogo-12-star", name: "Apple Fireworks Pogo 12 Star", meta: "", price: "", image: "./images/apple-fireworks-pogo-12-star.jpg", brand: "others" },
       { id: "cock-12-star-skyshot", name: "Cock 12 Star Skyshot", meta: "", price: "", image: "./images/cock-12-star-skyshot.jpg", brand: "cock" },
+      { id: "cock-top-10-sky-flash-skyshot", name: "Cock Top 10 Sky Flash Skyshot", meta: "", price: "", image: "./images/cock-top-10-sky-flash-skyshot.jpg", brand: "cock" },
       { id: "cock-brand-sky-whistle-rocket", name: "Cock Brand Sky Whistle Rocket", meta: "", price: "", image: "./images/cock-brand-sky-whistle-rocket.jpg", brand: "cock" },
       { id: "cock-lunix-rocket", name: "Cock Lunix Rocket", meta: "", price: "", image: "./images/cock-lunix-rocket.jpg", brand: "cock" },
       { id: "cock-penta-sky-flash-skyshot", name: "Cock Penta Sky Flash Skyshot", meta: "", price: "", image: "./images/cock-penta-sky-flash-skyshot.jpg", brand: "cock" },
@@ -583,7 +588,7 @@
     });
     lines.push("");
     lines.push(`Total quantity: ${totalQuantity}`);
-    lines.push(hasUnpricedItems ? 'Total: Price to be confirmed' : `Total: ₹${total}`);
+    lines.push(hasUnpricedItems ? 'Total Amount: Price to be confirmed' : `Total Amount: ₹${total}`);
     if (name) lines.push(`Name: ${name}`);
     if (phone) lines.push(`Phone: ${phone}`);
     if (codEnabled) {
